@@ -84,6 +84,15 @@ namespace SendPulse.SDK
         #endregion
 
         #region 사용자 함수
+        public async Task<List<Template>> GetTemplatesAsync()
+        {
+            if (!await EnsureTokenAsync())
+                throw new InvalidOperationException();
+
+            var result = await Client.GetAsync("https://api.sendpulse.com/templates");
+            return JsonConvert.DeserializeObject<List<Template>>(await result.Content.ReadAsStringAsync());
+        }
+
         public async Task<DetailedBalance> GetBalanceAsync()
         {
             if (!await EnsureTokenAsync())
@@ -94,7 +103,7 @@ namespace SendPulse.SDK
             if (!EnsureResult(response))
                 return null;
 
-            return JsonConvert.DeserializeObject<DetailedBalance>(await result.Content.ReadAsStringAsync());
+            return response.ToObject<DetailedBalance>();
         }
         #endregion
 
