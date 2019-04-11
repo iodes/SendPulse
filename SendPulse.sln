@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.28729.10
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SendPulse.SDK", "SendPulse.SDK\SendPulse.SDK.csproj", "{5C4C9927-AA2A-4569-B2AD-E7BB203053A0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SendPulse.Sample", "SendPulse.Sample\SendPulse.Sample.csproj", "{D90369E6-39E9-4F55-A27D-9B9DD4B869A3}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{5C4C9927-AA2A-4569-B2AD-E7BB203053A0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5C4C9927-AA2A-4569-B2AD-E7BB203053A0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5C4C9927-AA2A-4569-B2AD-E7BB203053A0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5C4C9927-AA2A-4569-B2AD-E7BB203053A0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D90369E6-39E9-4F55-A27D-9B9DD4B869A3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D90369E6-39E9-4F55-A27D-9B9DD4B869A3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D90369E6-39E9-4F55-A27D-9B9DD4B869A3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D90369E6-39E9-4F55-A27D-9B9DD4B869A3}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {D522496B-2367-47EA-9843-A864159538C4}
+	EndGlobalSection
+EndGlobal
