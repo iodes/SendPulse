@@ -3,7 +3,7 @@ using System;
 
 namespace SendPulse.SDK.Models
 {
-    public class SMTPBalance
+    public class PushBalance
     {
         [JsonProperty("tariff_name")]
         public string TariffName { get; set; }

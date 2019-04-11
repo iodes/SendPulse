@@ -12,5 +12,8 @@ namespace SendPulse.SDK.Models
 
         [JsonProperty("smtp")]
         public SMTPBalance SMTP { get; set; }
+
+        [JsonProperty("push")]
+        public PushBalance Push { get; set; }
     }
 }
