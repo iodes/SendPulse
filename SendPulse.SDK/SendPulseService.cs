@@ -23,7 +23,10 @@ namespace SendPulse.SDK
 
         public DateTime TokenExpires { get; private set; }
 
-        internal HttpClient Client { get; } = new HttpClient();
+        internal HttpClient Client { get; } = new HttpClient
+        {
+            BaseAddress = new Uri("https://api.sendpulse.com")
+        };
         #endregion
 
         #region 생성자
@@ -44,6 +47,9 @@ namespace SendPulse.SDK
         {
             if (result.ContainsKey("error"))
                 throw new SendPulseException(result["error_description"].Value<string>());
+
+            if (result.ContainsKey("error_code"))
+                throw new SendPulseException(result["message"].Value<string>());
 
             return true;
         }
@@ -84,12 +90,30 @@ namespace SendPulse.SDK
         #endregion
 
         #region 사용자 함수
+        public async Task<bool> SendEmailAsync(EmailBase email)
+        {
+            if (!await EnsureTokenAsync())
+                throw new InvalidOperationException();
+
+            var parameters = new Dictionary<string, string>
+            {
+                { "email", JsonConvert.SerializeObject(email) }
+            };
+
+            var result = await Client.PostAsync("/smtp/emails", new FormUrlEncodedContent(parameters));
+            var response = JObject.Parse(await result.Content.ReadAsStringAsync());
+            if (!EnsureResult(response))
+                return false;
+
+            return true;
+        }
+
         public async Task<List<Template>> GetTemplatesAsync()
         {
             if (!await EnsureTokenAsync())
                 throw new InvalidOperationException();
 
-            var result = await Client.GetAsync("https://api.sendpulse.com/templates");
+            var result = await Client.GetAsync("/templates");
             return JsonConvert.DeserializeObject<List<Template>>(await result.Content.ReadAsStringAsync());
         }
 
@@ -98,7 +122,7 @@ namespace SendPulse.SDK
             if (!await EnsureTokenAsync())
                 throw new InvalidOperationException();
 
-            var result = await Client.GetAsync("https://api.sendpulse.com/user/balance/detail");
+            var result = await Client.GetAsync("/user/balance/detail");
             var response = JObject.Parse(await result.Content.ReadAsStringAsync());
             if (!EnsureResult(response))
                 return null;
