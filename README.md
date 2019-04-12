@@ -36,7 +36,7 @@ using (var sendPulse = new SendPulseService("CLIENT_ID", "CLIENT_SECRET"))
 ```csharp
 using (var sendPulse = new SendPulseService("CLIENT_ID", "CLIENT_SECRET"))
 {
-    await sendPulse.SendEmailAsync(new EmailData
+    await sendPulse.SendEmailAsync(new TemplateEmailData
     {
         Subject = "Sample Subject",
         From = new EmailAddress
