@@ -2,10 +2,26 @@
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
+    <Authors>Kodnix</Authors>
+    <Description>Managed SendPulse .NET SDK</Description>
+    <Copyright>Copyright © Kodnix. All rights reserved.</Copyright>
+    <PackageTags>Email SendPulse</PackageTags>
+    <PackageIconUrl>https://github.com/iodes/SendPulse/blob/master/Logo.png?raw=true</PackageIconUrl>
+    <RepositoryUrl>https://github.com/iodes/SendPulse</RepositoryUrl>
+    <PackageLicenseExpression></PackageLicenseExpression>
+    <PackageLicenseFile>LICENSE</PackageLicenseFile>
+    <PackageReleaseNotes>Initial Release</PackageReleaseNotes>
   </PropertyGroup>
 
   <ItemGroup>
     <PackageReference Include="Newtonsoft.Json" Version="12.0.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="..\LICENSE">
+      <Pack>True</Pack>
+      <PackagePath></PackagePath>
+    </None>
   </ItemGroup>
 
 </Project>
