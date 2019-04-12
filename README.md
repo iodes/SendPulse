@@ -57,7 +57,7 @@ using (var sendPulse = new SendPulseService("CLIENT_ID", "CLIENT_SECRET"))
         {
             { "ec_es_email_sender_company", "Company Name" },
             { "ec_es_email_sender_address", "Sender Address" },
-            { "current_year", "2019" }
+            { "current_year", "Current Year" }
         }
     });
 }
